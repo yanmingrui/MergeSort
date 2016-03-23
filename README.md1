@@ -1,20 +1,23 @@
-def Merge(A,p,q,r):
-    L1=A[p:q]
-    L1.append(10**9)
-    L2=A[q:r+1]
-    L2.append(10**9)
-    n1=len(L1)
-    n2=len(L2)
-    b=0
+def Merge(A,p,r):
+    q=int((p+r)/2)
+    L1=A[p:q+1]
+    L1.append(9**10)
+    L2=A[q+1:r+1]
+    L2.append(9**10)
     a=0
-    for x in range(p,r):
+    b=0
+    for k in range(p,r+1):
         if L1[a]>L2[b]:
-            A[x]=L2[b]
+            A[k]=L2[b]
             b=b+1
-            
         else:
-            A[x]=L1[a]
+            A[k]=L1[a]
             a=a+1
-L=[1,44,78,666,23,48,245,7777]
-Merge(L,0,4,len(L))
+def MergeSort(A,p,r):
+    if p<r:
+        MergeSort(A,p,int((p+r)/2))#为什么不是整数？
+        MergeSort(A,int((p+r)/2+1),r)
+        Merge(A,p,r)
+L=[1,44,3,3433,2,545,76767,65645645]
+MergeSort(L,0,len(L)-1)
 L
