@@ -1,0 +1,20 @@
+def Merge(A,p,q,r):
+    L1=A[p:q]
+    L1.append(10**9)
+    L2=A[q:r+1]
+    L2.append(10**9)
+    n1=len(L1)
+    n2=len(L2)
+    b=0
+    a=0
+    for x in range(p,r):
+        if L1[a]>L2[b]:
+            A[x]=L2[b]
+            b=b+1
+            
+        else:
+            A[x]=L1[a]
+            a=a+1
+L=[1,44,78,666,23,48,245,7777]
+Merge(L,0,4,len(L))
+L
